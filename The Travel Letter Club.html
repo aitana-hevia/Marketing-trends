@@ -1,0 +1,947 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>The Travel Letter Club</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: asymmetric editorial spreads, like pages of a travel journal. Text sits left,
+   paper objects (letters, postcards, photographs) overlap and tilt on the right. */
+:root{
+  --cream:#F8F3E8;
+  --paper:#EFE6D2;
+  --paper-deep:#E2D5B8;
+  --burgundy:#742B35;
+  --navy:#294B5B;
+  --olive:#777D5C;
+  --olive-deep:#575C40;
+  --ink:#2B2225;
+  --muted:#5D5149;
+  --line:rgba(116,43,53,.22);
+  --serif:"Cormorant Garamond","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --hand:"Caveat","Segoe Script","Bradley Hand",cursive;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .34 0 0 0 0 .22 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --shadow:0 1px 1px rgba(43,34,37,.12),0 10px 24px -8px rgba(43,34,37,.28);
+  --wrap:1180px;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font:400 1.0625rem/1.65 var(--sans);
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--cream);z-index:60}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--navy);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--burgundy);color:var(--cream);padding:.6rem 1rem;border-radius:6px;z-index:100}
+.skip:focus{left:8px}
+.wrap{max-width:var(--wrap);margin-inline:auto}
+section{scroll-margin-top:84px}
+.sec{padding-block:clamp(4.5rem,9vw,8rem)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.9rem,6.6vw,5.4rem)}
+h2{font-size:clamp(2.2rem,4.6vw,3.7rem)}
+h3{font-size:clamp(1.45rem,2.2vw,1.8rem);line-height:1.15}
+em{font-style:italic;color:var(--burgundy)}
+p{margin:0}
+.eyebrow{font:600 .74rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--olive-deep);display:flex;align-items:center;gap:.8rem}
+.eyebrow::before{content:"";width:2.2rem;height:1px;background:currentColor}
+.hand{font-family:var(--hand);font-weight:500}
+.lede{font-size:clamp(1.1rem,1.6vw,1.28rem);color:var(--muted);max-width:34rem}
+.paper{background:var(--paper) var(--grain)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font:600 .95rem/1 var(--sans);letter-spacing:.02em;text-decoration:none;padding:1rem 1.6rem;border-radius:999px;border:1.5px solid var(--burgundy);cursor:pointer;transition:transform .25s,background .25s,color .25s,box-shadow .25s}
+.btn-solid{background:var(--burgundy);color:var(--cream)}
+.btn-solid:hover{background:#5d2029;transform:translateY(-2px);box-shadow:0 10px 20px -10px rgba(116,43,53,.7)}
+.btn-ghost{background:transparent;color:var(--burgundy)}
+.btn-ghost:hover{background:var(--burgundy);color:var(--cream);transform:translateY(-2px)}
+.btn svg{width:1.05em;height:1.05em;transition:transform .25s}
+.btn:hover svg{transform:translateX(3px)}
+
+/* navigation */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));background:rgba(248,243,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--wrap);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:72px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--burgundy)}
+.brand svg{width:46px;height:46px;flex:none}
+.brand-name{font-family:var(--serif);font-size:1.32rem;font-weight:600;line-height:1;letter-spacing:.01em}
+.brand-name small{display:block;font:600 .6rem/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--olive-deep);margin-top:.35rem}
+.links{display:flex;align-items:center;gap:clamp(1rem,2.2vw,2rem);list-style:none;margin:0;padding:0}
+.links a{font:500 .94rem/1 var(--sans);text-decoration:none;color:var(--ink);padding:.5rem 0;position:relative}
+.links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:.1rem;height:1.5px;background:var(--burgundy);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.links a:not(.btn):hover::after,.links a.on::after{transform:scaleX(1)}
+.links .btn{padding:.8rem 1.3rem;color:var(--cream)}
+.burger{display:none;background:none;border:1.5px solid var(--burgundy);color:var(--burgundy);border-radius:10px;width:46px;height:46px;cursor:pointer;align-items:center;justify-content:center}
+.burger svg{width:22px;height:22px}
+@media (max-width:900px){
+  .burger{display:inline-flex}
+  .links{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--cream);border-bottom:1px solid var(--line);padding:.5rem max(16px,env(safe-area-inset-left,0px)) 1.2rem;display:none}
+  .links.open{display:flex}
+  .links li{border-bottom:1px solid var(--line)}
+  .links li:last-child{border:0;padding-top:1rem}
+  .links a{display:block;padding:1rem 0}
+  .links .btn{display:flex;justify-content:center}
+}
+
+/* hero */
+.hero{padding-block:clamp(2rem,5vw,4.5rem) clamp(3rem,6vw,5rem)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(1.5rem,4vw,4rem);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:1.7rem}
+.hero-copy .lede{max-width:31rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem}
+.slogan{font-family:var(--hand);font-size:clamp(1.6rem,2.6vw,2.1rem);color:var(--navy);display:flex;align-items:center;gap:.7rem;transform:rotate(-1.5deg);width:fit-content}
+.slogan svg{width:56px;height:20px;flex:none}
+.hero-art{position:relative;min-width:0}
+.hero-art svg{display:block;width:100%;height:auto;overflow:visible}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-art{order:-1;max-width:560px;margin-inline:auto}}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes sway{0%,100%{rotate:-.6deg}50%{rotate:.8deg}}
+.bob{animation:bob 7s ease-in-out infinite}
+.bob.d2{animation-duration:9s;animation-delay:-3s}
+.bob.d3{animation-duration:8s;animation-delay:-5s}
+.sway{animation:sway 9s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{translate:0 18px}to{translate:0 0}}
+.rise.l2{animation-delay:.12s}.rise.l3{animation-delay:.24s}.rise.l4{animation-delay:.36s}
+/* story */
+.story-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+.story h2{margin-top:1.2rem}
+.story-text{display:flex;flex-direction:column;gap:1.3rem;color:var(--muted);max-width:36rem}
+.story-text p:first-child{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.75rem);line-height:1.35;color:var(--ink)}
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1.2rem}
+.pillars div{background:var(--cream);padding:1.1rem 1.2rem}
+.pillars b{display:block;font:600 .74rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);margin-bottom:.5rem}
+.pillars span{font-size:.95rem;color:var(--muted);line-height:1.45;display:block}
+@media (max-width:860px){.story-grid{grid-template-columns:1fr}}
+
+/* how it works */
+.how{background:var(--paper) var(--grain);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+.head-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1.2rem 3rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.head-row h2{margin-top:1.2rem;max-width:14ch}
+.head-row p{max-width:26rem;color:var(--muted)}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6rem;position:relative;counter-reset:s}
+.steps::before{content:"";position:absolute;left:8%;right:8%;top:58px;border-top:2px dashed rgba(116,43,53,.4)}
+.step{position:relative;display:flex;flex-direction:column;gap:1rem;padding-right:.4rem}
+.step-ico{width:116px;height:116px;border-radius:50%;background:var(--cream);border:1.5px solid var(--burgundy);display:grid;place-items:center;position:relative;box-shadow:0 0 0 8px var(--paper);transition:transform .35s}
+.step:hover .step-ico{transform:rotate(-5deg) scale(1.04)}
+.step-ico svg{width:58px;height:58px}
+.step-n{position:absolute;right:-2px;top:-2px;width:34px;height:34px;border-radius:50%;background:var(--burgundy);color:var(--cream);font:600 1.15rem/34px var(--serif);text-align:center}
+.step h3{margin-top:.6rem}
+.step p{color:var(--muted);font-size:.98rem}
+@media (max-width:1000px){
+  .steps{grid-template-columns:1fr;gap:0}
+  .steps::before{left:57px;right:auto;top:20px;bottom:60px;border-top:0;border-left:2px dashed rgba(116,43,53,.4)}
+  .step{flex-direction:row;gap:1.4rem;padding-bottom:2.2rem;align-items:flex-start}
+  .step h3{margin-top:0}
+  .step-txt{padding-top:.4rem}
+}
+.step-txt{display:flex;flex-direction:column;gap:.6rem}
+
+/* box */
+.box-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(1.5rem,4vw,4rem);align-items:center}
+.box-stage{position:relative;min-width:0}
+.box-stage svg{display:block;width:100%;height:auto;overflow:visible}
+.item{cursor:pointer;transition:filter .3s}
+.item:hover,.item:focus-visible{filter:drop-shadow(0 0 0 transparent) brightness(1.04)}
+.item .ring{fill:none;stroke:var(--burgundy);stroke-width:3;stroke-dasharray:7 6;opacity:0;transition:opacity .3s}
+.item.active .ring{opacity:1}
+.item.active{translate:0 -8px}
+.item{transition:translate .35s,filter .3s}
+.item:focus-visible{outline:none}
+.item:focus-visible .ring{opacity:1;stroke:var(--navy)}
+.tabs{display:flex;flex-direction:column;gap:.5rem}
+.tab{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:1.1rem .2rem;cursor:pointer;font:inherit;color:inherit;transition:background .3s,padding .3s}
+.tab:hover{background:rgba(239,230,210,.6)}
+.tab .t-n{grid-row:span 2;font:italic 500 1.9rem/1 var(--serif);color:var(--olive);padding-top:.1rem}
+.tab .t-h{font:500 1.5rem/1.1 var(--serif)}
+.tab .t-b{grid-column:2;font-size:.97rem;color:var(--muted);max-height:0;overflow:hidden;transition:max-height .4s ease;line-height:1.55}
+.tab[aria-pressed="true"]{background:var(--paper);padding-inline:1rem}
+.tab[aria-pressed="true"] .t-n{color:var(--burgundy)}
+.tab[aria-pressed="true"] .t-b{max-height:11rem;margin-top:.5rem}
+.details{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem;margin-top:clamp(2.5rem,5vw,4rem)}
+.detail{display:flex;flex-direction:column;gap:.9rem}
+.detail .frame{aspect-ratio:4/3;border-radius:4px;overflow:hidden;background:var(--paper) var(--grain);box-shadow:var(--shadow);display:grid;place-items:center}
+.detail .frame svg{width:100%;height:100%;display:block}
+.detail h4{font-size:1.3rem}
+.detail p{font-size:.95rem;color:var(--muted);line-height:1.5}
+.box-note{margin-top:2.2rem;max-width:44rem;font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.4;color:var(--navy)}
+@media (max-width:960px){.box-grid{grid-template-columns:1fr}.details{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.details{grid-template-columns:1fr}}
+
+/* letter */
+.letter-sec{background:var(--navy);color:var(--cream);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));position:relative;overflow:hidden}
+.letter-sec .eyebrow{color:#D9CFA8}
+.letter-sec h2 em{color:#EBC9A6}
+.letter-sec .intro{margin-top:1.2rem;max-width:32rem;color:rgba(248,243,232,.82)}
+.letter-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,5rem);align-items:center;margin-top:clamp(2.5rem,5vw,4rem)}
+.stationery{position:relative;background:#FBF7EC var(--grain);color:#2d2a3a;padding:clamp(1.6rem,4vw,3.2rem) clamp(1.4rem,4vw,3.4rem) clamp(1.6rem,3vw,2.6rem);box-shadow:0 2px 2px rgba(0,0,0,.2),0 30px 50px -20px rgba(0,0,0,.55);transform:rotate(-1.2deg);border-radius:2px;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 35px,rgba(41,75,91,.16) 35px,rgba(41,75,91,.16) 36px),var(--grain)}
+.stationery::before{content:"";position:absolute;left:clamp(1rem,2.4vw,2rem);top:0;bottom:0;width:1px;background:rgba(116,43,53,.3)}
+.st-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font:600 .7rem/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--olive-deep);padding-bottom:1.2rem}
+.st-body{font-family:var(--hand);font-size:clamp(1.38rem,2.3vw,1.75rem);line-height:36px;color:#27344a}
+.st-body p+p{margin-top:36px}
+.st-sign{font-family:var(--hand);font-size:clamp(1.7rem,3vw,2.2rem);color:var(--burgundy);margin-top:36px;line-height:36px}
+.clip{position:absolute;right:2rem;top:-1.1rem;width:30px;height:76px;border:3px solid #9aa3a8;border-radius:16px;border-bottom-color:transparent;transform:rotate(4deg);opacity:.85}
+.postcard-wrap{position:relative;min-width:0}
+.postcard-wrap svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 22px 24px rgba(0,0,0,.4))}
+.fine{margin-top:1.4rem;font-size:.85rem;color:rgba(248,243,232,.66);max-width:26rem}
+@media (max-width:900px){.letter-grid{grid-template-columns:1fr}.postcard-wrap{max-width:520px}}
+
+/* discover */
+.disc-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.cards{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.2rem}
+.card{grid-column:span 3;background:var(--cream);border:1px solid var(--line);padding:.7rem .7rem 1.2rem;display:flex;flex-direction:column;gap:.9rem;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:default;position:relative}
+.card:nth-child(1){grid-column:span 6}
+.card:hover,.card:focus-within,.card.hl{transform:translateY(-4px) rotate(-.4deg);box-shadow:var(--shadow);border-color:var(--burgundy)}
+.card .pic{aspect-ratio:16/10;background:var(--paper);overflow:hidden}
+.card:nth-child(1) .pic{aspect-ratio:21/9}
+.card .pic svg{display:block;width:100%;height:100%}
+.card-body{padding-inline:.5rem;display:flex;flex-direction:column;gap:.4rem}
+.tag{font:600 .68rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--olive-deep);display:flex;align-items:center;gap:.6rem}
+.tag i{font:600 .9rem/1 var(--serif);font-style:normal;background:var(--burgundy);color:var(--cream);width:1.55rem;height:1.55rem;border-radius:50%;display:grid;place-items:center;letter-spacing:0}
+.card h3{font-size:1.45rem}
+.card p{font-size:.95rem;color:var(--muted);line-height:1.5}
+.card .note{font-family:var(--hand);font-size:1.3rem;color:var(--burgundy);line-height:1.1;margin-top:.2rem}
+.mapbox{position:sticky;top:96px;background:var(--paper) var(--grain);border:1px solid var(--line);padding:1rem;box-shadow:var(--shadow)}
+.mapbox svg{display:block;width:100%;height:auto}
+.mapbox .cap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font:600 .68rem/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--olive-deep);padding:.8rem .3rem .1rem}
+.pin{cursor:pointer;transition:transform .3s}
+.pin circle.dot{transition:fill .3s,r .3s}
+.pin:hover circle.dot,.pin.on circle.dot{fill:var(--navy)}
+.pin.on{translate:0 -4px}
+.pin:focus-visible{outline:none}
+.pin:focus-visible circle.dot{stroke:var(--navy);stroke-width:3}
+.illus{margin-top:1.6rem;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1rem;max-width:40rem}
+@media (max-width:960px){.disc-grid{grid-template-columns:1fr}.mapbox{position:static;order:-1}}
+@media (max-width:560px){.card,.card:nth-child(1){grid-column:span 6}}
+
+/* promise */
+.promise{background:var(--burgundy) var(--grain);color:var(--cream);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));position:relative;overflow:hidden}
+.promise .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:2rem}
+.promise .eyebrow{color:#E8C9A0}
+.promise blockquote{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(2.5rem,6.2vw,5.6rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch;text-wrap:balance}
+.promise blockquote em{color:#F0CFA9}
+.promise .sub{max-width:34rem;font-size:clamp(1.1rem,1.7vw,1.3rem);color:rgba(248,243,232,.86);border-left:2px solid rgba(248,243,232,.4);padding-left:1.2rem}
+.promise .ring{position:absolute;right:-6%;top:50%;translate:0 -50%;width:min(46vw,520px);opacity:.14;pointer-events:none}
+.promise .ring svg{width:100%;height:auto;display:block}
+@media (max-width:700px){.promise .ring{width:90vw;right:-30%;opacity:.09}}
+
+/* join */
+.join-box{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:center;background:var(--paper) var(--grain);border:1px solid var(--line);padding:clamp(1.6rem,5vw,4.5rem);position:relative}
+.join-box::before{content:"";position:absolute;inset:10px;border:1.5px dashed rgba(116,43,53,.35);pointer-events:none}
+.join-copy{display:flex;flex-direction:column;gap:1.3rem;position:relative}
+.join-copy .lede{max-width:28rem}
+.form{display:flex;flex-direction:column;gap:1rem;position:relative}
+.form label{font:600 .74rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--olive-deep)}
+.field{display:flex;flex-wrap:wrap;gap:.7rem}
+.field input{flex:1 1 220px;min-width:0;font:400 1.05rem/1 var(--sans);padding:1.05rem 1.2rem;border:1.5px solid var(--navy);border-radius:999px;background:var(--cream);color:var(--ink)}
+.field input::placeholder{color:#7b7068}
+.field input[aria-invalid="true"]{border-color:var(--burgundy);box-shadow:0 0 0 3px rgba(116,43,53,.18)}
+.msg{min-height:1.6rem;font-size:.97rem}
+.msg.err{color:var(--burgundy);font-weight:600}
+.confirm{background:var(--cream);border:1px solid var(--olive);padding:1.1rem 1.3rem;display:flex;gap:1rem;align-items:flex-start;transform:rotate(-.6deg);box-shadow:var(--shadow)}
+.confirm svg{width:54px;height:54px;flex:none}
+.confirm b{font:600 1.35rem/1.1 var(--serif);display:block;margin-bottom:.3rem;color:var(--burgundy)}
+.confirm p{font-size:.92rem;color:var(--muted);line-height:1.5}
+.demo-note{font-size:.85rem;color:var(--muted);max-width:30rem}
+
+/* footer */
+.foot{background:var(--ink);color:rgba(248,243,232,.85);margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px))) calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:clamp(3rem,6vw,4.5rem) 2rem}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:2.5rem}
+.foot .brand{color:var(--cream)}
+.foot .brand-name small{color:#C9C09A}
+.foot .tagline{font-family:var(--hand);font-size:1.7rem;color:#EBC9A6;margin-top:1.2rem;line-height:1.15;max-width:18rem}
+.foot h4{font:600 .72rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#C9C09A;margin-bottom:1.1rem}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem}
+.foot a{text-decoration:none;font-size:.97rem}
+.foot a:hover{text-decoration:underline;text-underline-offset:4px}
+.perf{height:14px;margin-block:2.6rem 1.4rem;background:radial-gradient(circle at 7px 0,var(--ink) 0 5px,transparent 5.5px) 0 0/14px 14px repeat-x,#C9C09A;opacity:.85;border-radius:2px}
+.foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.2rem;font-size:.84rem;color:rgba(248,243,232,.65)}
+.cancel{display:flex;align-items:center;gap:.9rem}
+.cancel svg{width:92px;height:auto;flex:none}
+@media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid>div:first-child{grid-column:1/-1}}
+@media (max-width:420px){.foot-grid{grid-template-columns:1fr}}
+@media (max-width:700px){.join-box{grid-template-columns:1fr}}
+</style>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Shared artwork -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="logo" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="32" cy="32" r="25.5" fill="none" stroke="currentColor" stroke-width=".9" stroke-dasharray="1.5 3"/>
+      <rect x="16" y="23" width="32" height="22" rx="2" fill="currentColor"/>
+      <path d="M16.8 24.5 32 36l15.2-11.5" fill="none" stroke="#F8F3E8" stroke-width="2" stroke-linejoin="round"/>
+      <circle cx="47" cy="19" r="4.6" fill="#777D5C"/>
+      <path d="M47 16.6v4.8M44.6 19h4.8" stroke="#F8F3E8" stroke-width="1.1"/>
+    </symbol>
+
+    <symbol id="photo-cph" viewBox="0 0 200 150">
+      <rect width="200" height="150" fill="#EFC9A2"/>
+      <rect width="200" height="58" fill="#E4A98A"/>
+      <rect width="200" height="30" fill="#D9917F" opacity=".55"/>
+      <circle cx="142" cy="70" r="23" fill="#F8E3B0"/>
+      <path d="M0 96V64h24l6-12 6 12h12v32z" fill="#8A3A44"/>
+      <path d="M48 96V58h22v38z" fill="#C98A5E"/>
+      <path d="M70 96V68h22l6-12 6 12h8v28z" fill="#E2BC7E"/>
+      <path d="M112 96V60h22v36z" fill="#3C6577"/>
+      <path d="M134 96V66h22l6-12 6 12h16v30z" fill="#A64B4F"/>
+      <path d="M184 96V62h16v34z" fill="#C98A5E"/>
+      <g fill="#F8E3B0" opacity=".85">
+        <rect x="8" y="72" width="6" height="8"/><rect x="26" y="70" width="6" height="8"/><rect x="54" y="68" width="5" height="7"/>
+        <rect x="76" y="76" width="5" height="7"/><rect x="96" y="76" width="5" height="7"/><rect x="118" y="70" width="5" height="7"/>
+        <rect x="140" y="74" width="5" height="7"/><rect x="160" y="74" width="5" height="7"/><rect x="190" y="72" width="5" height="7"/>
+      </g>
+      <rect y="96" width="200" height="54" fill="#5E8496"/>
+      <g fill="#F8E3B0" opacity=".7"><rect x="126" y="99" width="32" height="3"/><rect x="132" y="106" width="22" height="3"/><rect x="136" y="113" width="14" height="2.5"/></g>
+      <g stroke="#8FB0BC" stroke-width="1.5" opacity=".7"><path d="M10 112h34M70 120h40M20 136h50M120 134h60"/></g>
+      <path d="M28 124h44l-7 10H35z" fill="#2B2225"/>
+      <path d="M50 124V104l12 14z" fill="#F8F3E8"/>
+    </symbol>
+
+    <symbol id="stamp" viewBox="0 0 70 84">
+      <rect x="1" y="1" width="68" height="82" fill="#F8F3E8" stroke="#742B35" stroke-width="1.2" stroke-dasharray="2.2 2.6"/>
+      <rect x="7" y="7" width="56" height="60" fill="#294B5B"/>
+      <circle cx="44" cy="28" r="8" fill="#EBC9A6"/>
+      <path d="M7 67V50l14-9 12 8 14-10 16 9v19z" fill="#777D5C"/>
+      <path d="M14 62h42" stroke="#F8F3E8" stroke-width="1" stroke-dasharray="3 3"/>
+      <text x="35" y="77" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="6.5" font-weight="700" fill="#742B35" letter-spacing=".8">DANMARK</text>
+    </symbol>
+
+    <symbol id="postmark" viewBox="0 0 100 100">
+      <g fill="none" stroke="#294B5B" stroke-width="2">
+        <circle cx="38" cy="50" r="30"/><circle cx="38" cy="50" r="24" stroke-width="1"/>
+      </g>
+      <text x="38" y="46" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="7.5" font-weight="700" fill="#294B5B" letter-spacing=".6">KØBENHAVN</text>
+      <text x="38" y="58" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="7" fill="#294B5B" letter-spacing=".6">SEPT · SUN</text>
+      <g stroke="#294B5B" stroke-width="2" fill="none" stroke-linecap="round"><path d="M70 36q6-4 12 0t12 0"/><path d="M70 46q6-4 12 0t12 0"/><path d="M70 56q6-4 12 0t12 0"/><path d="M70 66q6-4 12 0t12 0"/></g>
+    </symbol>
+
+    <symbol id="env" viewBox="0 0 200 130">
+      <rect width="200" height="130" fill="#F3E9D0"/>
+      <rect x="4" y="4" width="192" height="122" fill="none" stroke="#742B35" stroke-width="5" stroke-dasharray="13 13"/>
+      <rect x="4" y="4" width="192" height="122" fill="none" stroke="#294B5B" stroke-width="5" stroke-dasharray="13 13" stroke-dashoffset="13"/>
+      <rect x="11" y="11" width="178" height="108" fill="#F8F1DE"/>
+      <path d="M11 11l89 58 89-58" fill="none" stroke="#D3C5A3" stroke-width="1.5"/>
+      <path d="M11 119l62-46M189 119l-62-46" fill="none" stroke="#E0D3B3" stroke-width="1.2"/>
+    </symbol>
+
+    <symbol id="tile" viewBox="0 0 100 100">
+      <rect width="100" height="100" rx="3" fill="#F8F3E8"/>
+      <rect x="3" y="3" width="94" height="94" rx="2" fill="none" stroke="#294B5B" stroke-width="1.6"/>
+      <g fill="#294B5B"><ellipse cx="50" cy="26" rx="8" ry="16"/><ellipse cx="50" cy="74" rx="8" ry="16"/><ellipse cx="26" cy="50" rx="16" ry="8"/><ellipse cx="74" cy="50" rx="16" ry="8"/></g>
+      <g fill="#5B8394" opacity=".9"><ellipse cx="50" cy="26" rx="8" ry="16" transform="rotate(45 50 50)"/><ellipse cx="50" cy="74" rx="8" ry="16" transform="rotate(45 50 50)"/><ellipse cx="26" cy="50" rx="16" ry="8" transform="rotate(45 50 50)"/><ellipse cx="74" cy="50" rx="16" ry="8" transform="rotate(45 50 50)"/></g>
+      <circle cx="50" cy="50" r="9" fill="#742B35"/><circle cx="50" cy="50" r="3.5" fill="#F8F3E8"/>
+      <g fill="#294B5B"><circle cx="13" cy="13" r="4"/><circle cx="87" cy="13" r="4"/><circle cx="13" cy="87" r="4"/><circle cx="87" cy="87" r="4"/></g>
+    </symbol>
+
+    <symbol id="snack" viewBox="0 0 120 110">
+      <ellipse cx="60" cy="98" rx="46" ry="8" fill="#2B2225" opacity=".18"/>
+      <path d="M16 56h88l-8 42H24z" fill="#F8F3E8" stroke="#742B35" stroke-width="1.5"/>
+      <path d="M22 56l6 42M38 56l3 42M54 56l1 42M70 56l-1 42M86 56l-3 42M102 56l-6 42" stroke="#742B35" stroke-width="3" opacity=".22"/>
+      <circle cx="60" cy="40" r="34" fill="#C98A5E"/>
+      <circle cx="60" cy="40" r="34" fill="none" stroke="#9B6140" stroke-width="2"/>
+      <path d="M60 40c0-5 6-7 9-4s2 11-5 13-16-3-16-13 8-18 20-17 22 9 22 22" fill="none" stroke="#7A4528" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M46 24q14-9 28-1M40 46q4 14 20 16" fill="none" stroke="#F6E7C9" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+      <rect x="38" y="66" width="44" height="22" fill="#F8F3E8" stroke="#294B5B" stroke-width="1"/>
+      <text x="60" y="76.5" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="5.6" font-weight="700" fill="#294B5B" letter-spacing=".5">KANELSNURRE</text>
+      <text x="60" y="84" text-anchor="middle" font-family="Caveat,cursive" font-size="8" fill="#742B35">Sunday bakery</text>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="top">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="The Travel Letter Club, back to top">
+      <svg aria-hidden="true"><use href="#logo"/></svg>
+      <span class="brand-name">The Travel Letter Club<small>Est. as a student concept</small></span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="links" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+    <nav aria-label="Main">
+      <ul class="links" id="links">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#box">The Box</a></li>
+        <li><a href="#discover">Discover</a></li>
+        <li><a class="btn btn-solid" href="#join">Join the Club</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow rise">A pen pal club for curious travellers</p>
+      <h1 id="hero-title" class="rise l2">The world is <em>closer</em> than you think.</h1>
+      <p class="lede rise l3">Meet someone from another country. Discover their everyday life. Find a new favourite place &mdash; through the person who calls it home.</p>
+      <div class="cta-row rise l3">
+        <a class="btn btn-solid" href="#story">Discover the Club
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5"/></svg></a>
+        <a class="btn btn-ghost" href="#box">Explore the Box</a>
+      </div>
+      <p class="slogan rise l4">
+        <svg viewBox="0 0 56 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12c10-12 20 8 30-2 6-6 12-2 20 0M46 5l7 5-8 4"/></svg>
+        Meet the world, one letter at a time.
+      </p>
+    </div>
+
+    <div class="hero-art rise l2">
+      <svg viewBox="0 0 640 610" role="img" aria-label="An open subscription box holding a photograph, letters and a postcard, with a ceramic tile and a cinnamon bun in front, set on a vintage map with a dotted route between two cities.">
+        <!-- vintage map -->
+        <g transform="rotate(-2.5 290 250)">
+          <rect x="22" y="24" width="540" height="440" fill="#E8DCBE" stroke="#C9B98F" stroke-width="1.5"/>
+          <path d="M22 140h540M22 250h540M22 360h540M156 24v440M290 24v440M424 24v440" stroke="#C9B98F" stroke-width="1" stroke-dasharray="2 5"/>
+          <path d="M40 150c30-40 90-50 130-30s30 70 70 80 60 40 20 80-80 40-110 10-50-10-90-40-50-60-20-100z" fill="#777D5C" opacity=".34"/>
+          <path d="M330 70c40-20 110-10 150 20s30 60-10 70-40 40-80 30-80-20-70-60 0-40 10-60z" fill="#777D5C" opacity=".3"/>
+          <path d="M440 220c30 0 60 20 60 50s-20 40-50 30-30-20-30-50 0-30 20-30z" fill="#777D5C" opacity=".3"/>
+          <path d="M90 300C170 160 280 250 350 130S470 70 500 90" fill="none" stroke="#742B35" stroke-width="2.6" stroke-dasharray="3 9" stroke-linecap="round"/>
+          <circle cx="90" cy="300" r="7" fill="#742B35"/><circle cx="500" cy="90" r="7" fill="#294B5B"/>
+          <text x="66" y="330" font-family="Caveat,cursive" font-size="26" fill="#742B35">you</text>
+          <text x="396" y="74" font-family="Caveat,cursive" font-size="26" fill="#294B5B">Copenhagen</text>
+          <g transform="translate(86 78)" stroke="#294B5B" fill="none" stroke-width="1.5"><circle r="26"/><circle r="19" stroke-dasharray="2 3"/><path d="M0-34V34M-34 0H34" stroke-width="1"/><path d="M0-30l5 25-5 5-5-5z" fill="#742B35" stroke="none"/><text y="-38" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="11" font-weight="700" fill="#294B5B" stroke="none">N</text></g>
+        </g>
+        <!-- passport stamps -->
+        <g class="bob d2" opacity=".82">
+          <g transform="translate(470 150) rotate(12)" fill="none" stroke="#742B35" stroke-width="2.4"><circle r="46"/><circle r="38" stroke-width="1"/><text y="-4" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="11" font-weight="700" fill="#742B35" stroke="none" letter-spacing="1.5">HEJ FRA</text><text y="14" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="11" font-weight="700" fill="#742B35" stroke="none" letter-spacing="1.5">DANMARK</text></g>
+        </g>
+        <g opacity=".7"><g transform="translate(70 200) rotate(-10)" fill="none" stroke="#294B5B" stroke-width="2"><rect x="-42" y="-24" width="84" height="48" rx="4"/><text y="5" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="10" font-weight="700" fill="#294B5B" stroke="none" letter-spacing="2">WELCOME</text></g></g>
+
+        <!-- box -->
+        <ellipse cx="375" cy="556" rx="210" ry="22" fill="#2B2225" opacity=".22"/>
+        <rect x="196" y="330" width="368" height="46" fill="#4A1821"/>
+        <!-- items tucked in -->
+        <g class="bob">
+          <g transform="translate(222 236) rotate(-8)">
+            <rect width="124" height="152" fill="#FBF8F0" style="filter:drop-shadow(0 6px 8px rgba(43,34,37,.35))"/>
+            <svg x="9" y="9" width="106" height="80" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><use href="#photo-cph"/></svg>
+            <text x="62" y="112" text-anchor="middle" font-family="Caveat,cursive" font-size="19" fill="#294B5B">the canal, Sunday</text>
+          </g>
+        </g>
+        <g class="bob d3">
+          <g transform="translate(328 226) rotate(-3)"><svg width="196" height="127" viewBox="0 0 200 130" style="filter:drop-shadow(0 6px 8px rgba(43,34,37,.35))"><use href="#env"/></svg></g>
+          <g transform="translate(346 252) rotate(5)" style="filter:drop-shadow(0 6px 8px rgba(43,34,37,.35))">
+            <svg width="190" height="124" viewBox="0 0 200 130"><use href="#env"/>
+              <svg x="138" y="16" width="44" height="54" viewBox="0 0 70 84"><use href="#stamp"/></svg>
+              <svg x="82" y="14" width="64" height="64" viewBox="0 0 100 100" opacity=".85"><use href="#postmark"/></svg>
+              <text x="24" y="86" font-family="Caveat,cursive" font-size="20" fill="#27344a">To: a friend, soon</text>
+              <path d="M24 98h96M24 110h70" stroke="#27344a" stroke-width="1" opacity=".4"/>
+            </svg>
+          </g>
+        </g>
+        <g class="bob d2">
+          <g transform="translate(470 262) rotate(9)" style="filter:drop-shadow(0 6px 8px rgba(43,34,37,.35))">
+            <rect width="132" height="96" fill="#FBF8F0"/>
+            <svg x="6" y="6" width="120" height="84" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><use href="#photo-cph"/></svg>
+          </g>
+        </g>
+        <!-- box front -->
+        <rect x="190" y="366" width="380" height="176" fill="#742B35"/>
+        <rect x="190" y="366" width="380" height="14" fill="#8D3C47"/>
+        <rect x="190" y="530" width="380" height="12" fill="#5F2029"/>
+        <rect x="196" y="392" width="368" height="1" fill="#F8F3E8" opacity=".25"/>
+        <g transform="translate(300 414)">
+          <rect width="160" height="96" fill="#F8F3E8" stroke="#E0D3B3"/>
+          <rect x="6" y="6" width="148" height="84" fill="none" stroke="#742B35" stroke-width="1"/>
+          <svg x="64" y="10" width="32" height="32" viewBox="0 0 64 64" style="color:#742B35"><use href="#logo"/></svg>
+          <text x="80" y="58" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="15" font-weight="600" fill="#742B35">The Travel Letter Club</text>
+          <text x="80" y="74" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="6.4" font-weight="700" fill="#575C40" letter-spacing="1.6">MONTHLY CULTURAL BOX</text>
+        </g>
+        <!-- keepsake + snack in front -->
+        <g class="bob d3"><g transform="translate(120 440) rotate(-12)"><svg width="94" height="94" viewBox="0 0 100 100" style="filter:drop-shadow(0 8px 8px rgba(43,34,37,.4))"><use href="#tile"/></svg></g></g>
+        <g class="bob"><svg x="506" y="432" width="116" height="106" viewBox="0 0 120 110" transform="rotate(6 560 480)"><use href="#snack"/></svg></g>
+        <!-- washi tape / twine -->
+        <g transform="translate(250 322) rotate(-4)"><rect width="74" height="22" fill="#777D5C" opacity=".85"/><path d="M8 4v14M20 4v14M32 4v14M44 4v14M56 4v14M68 4v14" stroke="#F8F3E8" stroke-width="2" opacity=".35"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="sec story" id="story" aria-labelledby="story-title">
+  <div class="wrap story-grid">
+    <div>
+      <p class="eyebrow">Our Story</p>
+      <h2 id="story-title">Real people. Real stories. <em>Real places.</em></h2>
+      <p class="hand" style="font-size:clamp(1.7rem,2.8vw,2.3rem);color:var(--navy);line-height:1.1;margin-top:2rem;transform:rotate(-2deg);max-width:15rem">Instead of ten thousand reviews, one friend.</p>
+    </div>
+    <div class="story-text">
+      <p>Most of us choose where to go by scrolling: ranked lists, star ratings and the same few viral cafés.</p>
+      <p>The Travel Letter Club works the other way round. You are matched with someone who lives abroad, and you come to know their place through their eyes: the bakery they pass every morning, the tradition their family keeps, the bench where they go when they need a little quiet.</p>
+      <p>Letter by letter, a stranger becomes a familiar face, and a dot on the map becomes somewhere that matters to you. When you feel ready, you can visit with a local guide written by the person who calls it home.</p>
+      <div class="pillars">
+        <div><b>Connection</b><span>One person, getting to know each other over time.</span></div>
+        <div><b>Curiosity</b><span>Questions about daily life, not just landmarks.</span></div>
+        <div><b>Exchange</b><span>Both sides share their culture and learn.</span></div>
+        <div><b>Discovery</b><span>Places chosen by someone who loves them.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec how" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">How It Works</p><h2 id="how-title">Four steps from stranger to <em>friend</em>.</h2></div>
+      <p>No itineraries and no algorithms. Just a person, a pen and a place worth knowing.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-ico"><span class="step-n" aria-hidden="true">1</span>
+          <svg viewBox="0 0 60 60" fill="none" stroke="#742B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="26" r="6"/><path d="M16 32v8M16 20c0-4 4-6 6-3"/><circle cx="44" cy="22" r="6"/><path d="M44 28v8"/><path d="M12 48c10-8 26-8 36 0" stroke-dasharray="2 4"/><path d="M26 14c3-3 7-3 10 0" /></svg></div>
+        <div class="step-txt"><h3>Get matched with someone abroad</h3><p>Tell us what you love and where you are curious about. We pair you with a pen pal from another country.</p></div>
+      </li>
+      <li class="step">
+        <div class="step-ico"><span class="step-n" aria-hidden="true">2</span>
+          <svg viewBox="0 0 60 60" fill="none" stroke="#742B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="16" width="44" height="30" rx="2"/><path d="M9 18l21 15 21-15"/><path d="M40 8c4 0 6 3 4 6l-4 4-4-4c-2-3 0-6 4-6z" fill="#742B35" stroke="none"/></svg></div>
+        <div class="step-txt"><h3>Exchange letters and personal stories</h3><p>Write about everyday life, local traditions and favourite cafés. Slow, thoughtful and personal.</p></div>
+      </li>
+      <li class="step">
+        <div class="step-ico"><span class="step-n" aria-hidden="true">3</span>
+          <svg viewBox="0 0 60 60" fill="none" stroke="#742B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22l22-10 22 10v22L30 54 8 44z"/><path d="M8 22l22 10 22-10M30 32v22"/><path d="M19 17l22 10" /></svg></div>
+        <div class="step-txt"><h3>Receive a monthly cultural box</h3><p>Each month a box arrives with a letter, a local treat, a photograph and a small keepsake.</p></div>
+      </li>
+      <li class="step">
+        <div class="step-ico"><span class="step-n" aria-hidden="true">4</span>
+          <svg viewBox="0 0 60 60" fill="none" stroke="#742B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 8c-8 0-13 6-13 13 0 10 13 24 13 24s13-14 13-24c0-7-5-13-13-13z"/><circle cx="30" cy="21" r="5"/><path d="M12 50h36" stroke-dasharray="3 4"/></svg></div>
+        <div class="step-txt"><h3>Explore their city, if you wish</h3><p>Your pen pal writes a personal local guide. Follow it from home, or use it to visit.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="box" aria-labelledby="box-title">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">The Monthly Box</p><h2 id="box-title">Four things, each with a <em>story</em> inside.</h2></div>
+      <p>Choose an item in the box, or from the list, to see what it carries.</p>
+    </div>
+
+    <div class="box-grid">
+      <div class="box-stage">
+        <svg viewBox="0 0 600 470" role="group" aria-label="Top view of an open monthly box holding a letter, a local treat, a photograph and a cultural keepsake">
+          <ellipse cx="300" cy="438" rx="272" ry="20" fill="#2B2225" opacity=".2"/>
+          <rect x="24" y="30" width="552" height="394" rx="8" fill="#742B35"/>
+          <rect x="24" y="30" width="552" height="394" rx="8" fill="none" stroke="#5F2029" stroke-width="3"/>
+          <rect x="46" y="52" width="508" height="330" fill="#5A1D26"/>
+          <rect x="54" y="60" width="492" height="314" fill="#EFE6D2"/>
+          <path d="M54 130q60-14 120 0t120 0 120 0 120 0M54 220q60 12 120 0t120 0 120 0 120 0M54 310q60-12 120 0t120 0 120 0 120 0" fill="none" stroke="#DDD0B0" stroke-width="1.5"/>
+          <text x="300" y="408" text-anchor="middle" font-family="Hanken Grotesk,Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="4" fill="#F8F3E8" opacity=".85">THE TRAVEL LETTER CLUB  ·  MONTHLY CULTURAL BOX</text>
+
+          <g class="item" id="it-letter" data-k="letter" tabindex="0" role="button" aria-label="The Letter">
+            <g transform="translate(76 92) rotate(-3)">
+              <rect class="ring" x="-10" y="-10" width="272" height="184" rx="6"/>
+              <svg width="252" height="164" viewBox="0 0 200 130" style="filter:drop-shadow(0 6px 8px rgba(43,34,37,.3))"><use href="#env"/>
+                <svg x="140" y="15" width="44" height="54" viewBox="0 0 70 84"><use href="#stamp"/></svg>
+                <svg x="86" y="12" width="62" height="62" viewBox="0 0 100 100" opacity=".85"><use href="#postmark"/></svg>
+                <text x="26" y="84" font-family="Caveat,cursive" font-size="21" fill="#27344a">To a friend I haven't met</text>
+                <path d="M26 98h90M26 109h60" stroke="#27344a" stroke-width="1" opacity=".4"/></svg>
+            </g>
+          </g>
+          <g class="item" id="it-treat" data-k="treat" tabindex="0" role="button" aria-label="The Local Treat">
+            <g transform="translate(372 78)">
+              <rect class="ring" x="-8" y="-8" width="170" height="156" rx="6"/>
+              <svg width="154" height="141" viewBox="0 0 120 110"><use href="#snack"/></svg>
+            </g>
+          </g>
+          <g class="item" id="it-photo" data-k="photo" tabindex="0" role="button" aria-label="The Photograph">
+            <g transform="translate(396 232) rotate(6)">
+              <rect class="ring" x="-8" y="-8" width="140" height="162" rx="6"/>
+              <rect width="124" height="146" fill="#FBF8F0" style="filter:drop-shadow(0 6px 8px rgba(43,34,37,.3))"/>
+              <svg x="9" y="9" width="106" height="82" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><use href="#photo-cph"/></svg>
+              <text x="62" y="118" text-anchor="middle" font-family="Caveat,cursive" font-size="19" fill="#294B5B">where I go to think</text>
+            </g>
+          </g>
+          <g class="item" id="it-keep" data-k="keep" tabindex="0" role="button" aria-label="The Cultural Keepsake">
+            <g transform="translate(112 276) rotate(-7)">
+              <rect class="ring" x="-8" y="-8" width="116" height="116" rx="6"/>
+              <svg width="100" height="100" viewBox="0 0 100 100" style="filter:drop-shadow(0 6px 8px rgba(43,34,37,.3))"><use href="#tile"/></svg>
+            </g>
+          </g>
+          <g transform="translate(236 336) rotate(-5)"><text font-family="Caveat,cursive" font-size="26" fill="#294B5B">open me first</text><path d="M-6 -4C-26 -8 -34 -24 -30 -40M-30 -40l-8 9M-30 -40l8 7" fill="none" stroke="#294B5B" stroke-width="1.6" stroke-linecap="round"/></g>
+        </svg>
+      </div>
+
+      <div class="tabs" role="group" aria-label="Contents of the box">
+        <button class="tab" type="button" data-k="letter" aria-pressed="true"><span class="t-n">i</span><span class="t-h">The Letter</span><span class="t-b">A handwritten letter from your pen pal about everyday life, family traditions and the small things guidebooks skip. It is the heart of the box.</span></button>
+        <button class="tab" type="button" data-k="treat" aria-pressed="false"><span class="t-n">ii</span><span class="t-h">The Local Treat</span><span class="t-b">A snack they really eat, with a note on when and why. Taste turns a faraway place into something real.</span></button>
+        <button class="tab" type="button" data-k="photo" aria-pressed="false"><span class="t-n">iii</span><span class="t-h">The Photograph</span><span class="t-b">A picture of a place that matters to them, with a few words on the back. Your first glimpse of somewhere you may one day visit.</span></button>
+        <button class="tab" type="button" data-k="keep" aria-pressed="false"><span class="t-n">iv</span><span class="t-h">The Cultural Keepsake</span><span class="t-b">A small object from daily life or local craft. Ordinary on a shelf, but it comes with a story you can retell.</span></button>
+      </div>
+    </div>
+
+    <div class="details" aria-label="Close-up details">
+      <figure class="detail" style="margin:0">
+        <div class="frame"><svg viewBox="0 0 400 300" role="img" aria-label="Close-up of a handwritten letter on ruled paper">
+          <rect width="400" height="300" fill="#E2D5B8"/>
+          <g transform="rotate(-3 200 150)"><rect x="40" y="26" width="320" height="250" fill="#FBF7EC"/>
+          <path d="M70 80h260M70 116h260M70 152h260M70 188h260M70 224h260" stroke="#294B5B" stroke-width="1" opacity=".2"/>
+          <path d="M62 26v250" stroke="#742B35" stroke-width="1" opacity=".35"/>
+          <text x="76" y="72" font-family="Caveat,cursive" font-size="30" fill="#27344a">Dear friend,</text>
+          <text x="76" y="108" font-family="Caveat,cursive" font-size="26" fill="#27344a">it rained all week, so I</text>
+          <text x="76" y="144" font-family="Caveat,cursive" font-size="26" fill="#27344a">finally tried my gran's</text>
+          <text x="76" y="180" font-family="Caveat,cursive" font-size="26" fill="#27344a">soup. Here is how it goes&hellip;</text></g></svg></div>
+        <h4>Written by hand</h4><p>Real handwriting, real news and the odd doodle.</p>
+      </figure>
+      <figure class="detail" style="margin:0">
+        <div class="frame"><svg viewBox="0 0 400 300" role="img" aria-label="Close-up of a wrapped cinnamon bun">
+          <rect width="400" height="300" fill="#D9C9A3"/><g transform="translate(96 24) scale(1.95)"><use href="#snack" width="120" height="110"/></g></svg></div>
+        <h4>Taste of home</h4><p>Something they eat every week, with the reason they love it.</p>
+      </figure>
+      <figure class="detail" style="margin:0">
+        <div class="frame"><svg viewBox="0 0 400 300" role="img" aria-label="Close-up of a photograph of a canal at sunset">
+          <rect width="400" height="300" fill="#C7B994"/><g transform="translate(110 14) rotate(4)"><rect width="196" height="250" fill="#FBF8F0" style="filter:drop-shadow(0 6px 8px rgba(43,34,37,.35))"/><svg x="12" y="12" width="172" height="142" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><use href="#photo-cph"/></svg><text x="98" y="196" text-anchor="middle" font-family="Caveat,cursive" font-size="26" fill="#294B5B">best at six o'clock</text></g></svg></div>
+        <h4>A place with a name</h4><p>Where they walk, wait, think and meet friends.</p>
+      </figure>
+      <figure class="detail" style="margin:0">
+        <div class="frame"><svg viewBox="0 0 400 300" role="img" aria-label="Close-up of a painted ceramic tile on linen">
+          <rect width="400" height="300" fill="#CFC3A2"/><path d="M0 40h400M0 90h400M0 140h400M0 190h400M0 240h400M60 0v300M120 0v300M180 0v300M240 0v300M300 0v300M360 0v300" stroke="#B8AC8A" stroke-width="1" opacity=".6"/><g transform="translate(106 36) rotate(-6 94 114)"><svg width="188" height="228" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" style="filter:drop-shadow(0 8px 8px rgba(43,34,37,.35))"><use href="#tile"/></svg></g></svg></div>
+        <h4>A story to keep</h4><p>Small, useful, and always explained on the back.</p>
+      </figure>
+    </div>
+    <p class="box-note">A snack is only a snack until someone tells you why it matters. Every object in the box carries a story.</p>
+  </div>
+</section>
+
+<section class="sec letter-sec" id="letter" aria-labelledby="letter-title">
+  <div class="wrap">
+    <p class="eyebrow">A Letter From Somewhere Else</p>
+    <h2 id="letter-title" style="margin-top:1.2rem;max-width:16ch">Open it slowly. It <em>was written for you.</em></h2>
+    <p class="intro">This is a fictional example of the kind of letter a pen pal in Copenhagen might send.</p>
+
+    <div class="letter-grid">
+      <article class="stationery" aria-label="Example letter from Copenhagen">
+        <span class="clip" aria-hidden="true"></span>
+        <div class="st-head"><span>From &middot; Copenhagen, Denmark</span><span>To &middot; a friend abroad</span></div>
+        <div class="st-body">
+          <p>There's a tiny bakery near the canal that smells like cinnamon every morning. On Sundays, my friends and I walk by the water and talk about everything.</p>
+          <p>If you ever visit, I'll show you my favourite spot to watch the sunset. It's not in any guidebook &mdash; it's just where I go when I need a little quiet.</p>
+        </div>
+        <p class="st-sign">See you somewhere, soon &#9825;</p>
+      </article>
+
+      <div class="postcard-wrap">
+        <svg viewBox="0 0 520 400" role="img" aria-label="Two postcards from Copenhagen: the back with a stamp and postmark, and the front showing a canal at sunset.">
+          <g transform="translate(18 14) rotate(-5 200 130)" class="sway">
+            <rect width="400" height="268" fill="#F6EEDA"/>
+            <path d="M200 24v220" stroke="#B9AB88" stroke-width="1.5"/>
+            <text x="28" y="62" font-family="Caveat,cursive" font-size="27" fill="#27344a">Hej from the canal!</text>
+            <text x="28" y="96" font-family="Caveat,cursive" font-size="24" fill="#27344a">Write back soon.</text>
+            <path d="M226 150h150M226 182h150M226 214h110" stroke="#27344a" stroke-width="1.2" opacity=".45"/>
+            <svg x="318" y="18" width="62" height="75" viewBox="0 0 70 84"><use href="#stamp"/></svg>
+            <svg x="226" y="10" width="86" height="86" viewBox="0 0 100 100" opacity=".9"><use href="#postmark"/></svg>
+          </g>
+          <g transform="translate(110 118) rotate(5 190 130)" style="filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))">
+            <rect width="380" height="254" fill="#FBF8F0"/>
+            <svg x="12" y="12" width="356" height="200" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice"><use href="#photo-cph"/></svg>
+            <text x="190" y="238" text-anchor="middle" font-family="Caveat,cursive" font-size="28" fill="#742B35">Greetings from Copenhagen</text>
+          </g>
+        </svg>
+        <p class="fine">Letters and places shown here are illustrative examples created for this student concept.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="discover" aria-labelledby="disc-title">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">Discover</p><h2 id="disc-title">Discover a city through <em>a local.</em></h2></div>
+      <p>The places a pen pal might share are the ones that never make a top-ten list.</p>
+    </div>
+
+    <div class="disc-grid">
+      <div class="cards">
+        <article class="card" data-k="1">
+          <div class="pic"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of a small corner café with a striped awning and two tables">
+            <rect width="320" height="200" fill="#E6D6B2"/><rect y="150" width="320" height="50" fill="#C9B58A"/>
+            <rect x="40" y="38" width="240" height="112" fill="#294B5B"/><rect x="58" y="70" width="90" height="80" fill="#F2D9A0" opacity=".9"/><rect x="172" y="70" width="90" height="80" fill="#F2D9A0" opacity=".9"/>
+            <path d="M30 38h260l-14 36H44z" fill="#742B35"/><path d="M62 38l-6 36M96 38l-3 36M130 38l-1 36M164 38v36M198 38l1 36M232 38l3 36M266 38l6 36" stroke="#F8F3E8" stroke-width="12" opacity=".9"/>
+            <circle cx="100" cy="110" r="14" fill="#C98A5E"/><rect x="86" y="124" width="28" height="26" fill="#C98A5E" opacity=".5"/>
+            <g><ellipse cx="230" cy="158" rx="34" ry="8" fill="#F8F3E8"/><rect x="228" y="158" width="4" height="30" fill="#2B2225"/><rect x="218" y="146" width="12" height="9" rx="2" fill="#742B35"/><rect x="236" y="146" width="12" height="9" rx="2" fill="#777D5C"/></g>
+            <g><ellipse cx="86" cy="170" rx="28" ry="7" fill="#F8F3E8"/><rect x="84" y="170" width="4" height="22" fill="#2B2225"/></g>
+          </svg></div>
+          <div class="card-body"><span class="tag"><i>1</i>The neighbourhood café</span><h3>The one with mismatched chairs</h3><p>The owner knows everyone's order, and the best seat is the one by the window. Ask what is fresh from the oven.</p><span class="note">&ldquo;Come before nine.&rdquo;</span></div>
+        </article>
+
+        <article class="card" data-k="2">
+          <div class="pic"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of a family dinner table with candles and shared dishes">
+            <rect width="320" height="200" fill="#294B5B"/><circle cx="160" cy="70" r="90" fill="#F2D9A0" opacity=".12"/>
+            <rect x="0" y="120" width="320" height="80" fill="#742B35"/><path d="M0 120h320v10H0z" fill="#F8F3E8"/>
+            <ellipse cx="90" cy="150" rx="40" ry="12" fill="#F8F3E8"/><ellipse cx="90" cy="147" rx="30" ry="8" fill="#C98A5E"/>
+            <ellipse cx="230" cy="152" rx="40" ry="12" fill="#F8F3E8"/><ellipse cx="230" cy="149" rx="30" ry="8" fill="#777D5C"/>
+            <rect x="150" y="84" width="8" height="46" fill="#F8F3E8"/><rect x="170" y="94" width="8" height="36" fill="#F8F3E8"/>
+            <path d="M154 70q-6 8 0 12 6-4 0-12zM174 80q-6 8 0 12 6-4 0-12z" fill="#F2B24D"/>
+            <ellipse cx="160" cy="172" rx="26" ry="8" fill="#F8F3E8"/>
+          </svg></div>
+          <div class="card-body"><span class="tag"><i>2</i>A family tradition</span><h3>Friday dinner at Grandma's</h3><p>Everyone brings one dish. Nobody leaves hungry, and the recipes are never written down.</p></div>
+        </article>
+
+        <article class="card" data-k="3">
+          <div class="pic"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of a bench by the water at sunset">
+            <rect width="320" height="200" fill="#EBC09A"/><rect width="320" height="70" fill="#D88F7F"/><rect width="320" height="34" fill="#B96B74" opacity=".6"/>
+            <circle cx="210" cy="100" r="34" fill="#F8E3B0"/>
+            <rect y="108" width="320" height="92" fill="#5E8496"/><g fill="#F8E3B0" opacity=".7"><rect x="180" y="114" width="58" height="4"/><rect x="190" y="124" width="38" height="4"/><rect x="198" y="134" width="22" height="3"/></g>
+            <rect y="150" width="320" height="50" fill="#777D5C"/>
+            <g fill="#2B2225"><rect x="60" y="120" width="76" height="6"/><rect x="62" y="104" width="72" height="5"/><rect x="66" y="126" width="4" height="26"/><rect x="126" y="126" width="4" height="26"/><rect x="66" y="108" width="3" height="14"/><rect x="128" y="108" width="3" height="14"/></g>
+          </svg></div>
+          <div class="card-body"><span class="tag"><i>3</i>A favourite sunset spot</span><h3>A bench with no sign</h3><p>A quiet stretch of water with no crowds. Best twenty minutes before the sun goes down.</p></div>
+        </article>
+
+        <article class="card" data-k="4">
+          <div class="pic"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of bookshelves in a small bookshop with a lamp">
+            <rect width="320" height="200" fill="#5A3B33"/><rect x="14" y="14" width="292" height="172" fill="#7A5043"/>
+            <g><rect x="24" y="24" width="272" height="3" fill="#2B2225"/><rect x="24" y="84" width="272" height="3" fill="#2B2225"/><rect x="24" y="144" width="272" height="3" fill="#2B2225"/></g>
+            <g fill="#742B35"><rect x="30" y="40" width="12" height="44"/><rect x="74" y="46" width="14" height="38"/><rect x="150" y="38" width="12" height="46"/></g>
+            <g fill="#294B5B"><rect x="44" y="46" width="14" height="38"/><rect x="104" y="42" width="12" height="42"/><rect x="180" y="48" width="14" height="36"/></g>
+            <g fill="#777D5C"><rect x="58" y="42" width="14" height="42"/><rect x="90" y="40" width="12" height="44"/><rect x="164" y="44" width="14" height="40"/></g>
+            <g fill="#F2D9A0"><rect x="118" y="48" width="14" height="36"/><rect x="134" y="44" width="14" height="40"/></g>
+            <g fill="#F2D9A0"><rect x="30" y="100" width="16" height="44"/><rect x="60" y="104" width="12" height="40"/><rect x="118" y="98" width="14" height="46"/></g>
+            <g fill="#742B35"><rect x="46" y="104" width="14" height="40"/><rect x="132" y="102" width="12" height="42"/></g>
+            <g fill="#294B5B"><rect x="74" y="98" width="14" height="46"/><rect x="90" y="106" width="14" height="38"/></g>
+            <g fill="#777D5C"><rect x="30" y="156" width="14" height="30"/><rect x="62" y="158" width="14" height="28"/><rect x="100" y="156" width="12" height="30"/></g>
+            <path d="M226 60h46l-6 20h-34z" fill="#F8F3E8"/><rect x="247" y="80" width="3" height="40" fill="#2B2225"/><circle cx="249" cy="120" r="14" fill="#F2B24D" opacity=".3"/>
+            <path d="M210 186c4-22 16-32 38-32s34 10 38 32z" fill="#C98A5E"/>
+          </svg></div>
+          <div class="card-body"><span class="tag"><i>4</i>A hidden bookshop or market</span><h3>Up the narrow staircase</h3><p>Secondhand cookbooks, a handwritten price list and a shop cat that decides who stays.</p></div>
+        </article>
+
+        <article class="card" data-k="5">
+          <div class="pic"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of stone steps with parked bicycles where friends meet after class">
+            <rect width="320" height="200" fill="#DCCBA4"/><rect width="320" height="70" fill="#E9DDBF"/>
+            <g fill="#C7B58C"><rect x="40" y="108" width="240" height="22"/><rect x="28" y="130" width="264" height="22"/><rect x="16" y="152" width="288" height="22"/><rect x="4" y="174" width="312" height="26"/></g>
+            <g fill="#294B5B"><rect x="60" y="30" width="200" height="78"/></g><g fill="#F8F3E8" opacity=".85"><rect x="76" y="44" width="16" height="50"/><rect x="108" y="44" width="16" height="50"/><rect x="140" y="44" width="16" height="50"/><rect x="172" y="44" width="16" height="50"/><rect x="204" y="44" width="16" height="50"/><rect x="236" y="44" width="10" height="50"/></g>
+            <g fill="none" stroke="#742B35" stroke-width="3"><circle cx="70" cy="160" r="13"/><circle cx="106" cy="160" r="13"/><path d="M70 160l14-18h18l4 18M84 142l-3-8h-8"/></g>
+            <g fill="none" stroke="#777D5C" stroke-width="3"><circle cx="226" cy="180" r="13"/><circle cx="262" cy="180" r="13"/><path d="M226 180l14-18h18l4 18M240 162l-3-8h-8"/></g>
+            <g fill="#C98A5E"><circle cx="160" cy="130" r="8"/><circle cx="186" cy="130" r="8"/></g><g fill="#742B35"><rect x="152" y="138" width="16" height="22" rx="4"/></g><g fill="#294B5B"><rect x="178" y="138" width="16" height="22" rx="4"/></g>
+          </svg></div>
+          <div class="card-body"><span class="tag"><i>5</i>After class</span><h3>The steps by the old library</h3><p>Bikes everywhere, someone always has snacks, and the plan for the evening gets made here.</p></div>
+        </article>
+      </div>
+
+      <aside class="mapbox" aria-label="A stylised map linking the five example places">
+        <svg viewBox="0 0 420 470" role="group" aria-label="Stylised map of an imaginary city with five numbered places">
+          <rect width="420" height="470" fill="#E8DCBE"/>
+          <path d="M0 330C90 300 130 360 220 330S350 250 420 290V470H0z" fill="#8FB0BC" opacity=".55"/>
+          <path d="M0 330C90 300 130 360 220 330S350 250 420 290" fill="none" stroke="#294B5B" stroke-width="2" opacity=".6"/>
+          <path d="M30 70c40-30 100-30 130 0s-10 70-70 70-90-10-60-70z" fill="#777D5C" opacity=".4"/>
+          <path d="M270 70c40-20 100 0 110 40s-50 60-90 40-50-60-20-80z" fill="#777D5C" opacity=".3"/>
+          <g stroke="#C9B98F" stroke-width="5" stroke-linecap="round" fill="none"><path d="M0 200h420M60 0v470M180 0v330M300 0v300M0 120l420 40M0 270l220-60"/></g>
+          <path d="M92 118C150 170 210 150 238 196S300 240 330 160 360 110 346 92" fill="none" stroke="#742B35" stroke-width="2.4" stroke-dasharray="3 8" stroke-linecap="round" opacity=".8"/>
+          <path d="M346 92C320 60 250 50 246 90" fill="none" stroke="#742B35" stroke-width="2.4" stroke-dasharray="3 8" stroke-linecap="round" opacity=".0"/>
+          <g class="pin" data-k="1" tabindex="0" role="button" aria-label="Show place 1, the neighbourhood café"><circle class="dot" cx="92" cy="118" r="15" fill="#742B35"/><text x="92" y="124" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" font-weight="700" fill="#F8F3E8">1</text></g>
+          <g class="pin" data-k="2" tabindex="0" role="button" aria-label="Show place 2, the family tradition"><circle class="dot" cx="238" cy="196" r="15" fill="#742B35"/><text x="238" y="202" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" font-weight="700" fill="#F8F3E8">2</text></g>
+          <g class="pin" data-k="3" tabindex="0" role="button" aria-label="Show place 3, the sunset spot"><circle class="dot" cx="140" cy="330" r="15" fill="#742B35"/><text x="140" y="336" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" font-weight="700" fill="#F8F3E8">3</text></g>
+          <g class="pin" data-k="4" tabindex="0" role="button" aria-label="Show place 4, the hidden bookshop or market"><circle class="dot" cx="330" cy="160" r="15" fill="#742B35"/><text x="330" y="166" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" font-weight="700" fill="#F8F3E8">4</text></g>
+          <g class="pin" data-k="5" tabindex="0" role="button" aria-label="Show place 5, the steps by the old library"><circle class="dot" cx="346" cy="92" r="15" fill="#742B35"/><text x="346" y="98" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" font-weight="700" fill="#F8F3E8">5</text></g>
+          <text x="40" y="420" font-family="Caveat,cursive" font-size="28" fill="#294B5B" transform="rotate(-3 40 420)">the canal</text>
+          <text x="186" y="52" font-family="Caveat,cursive" font-size="24" fill="#575C40" transform="rotate(2 186 52)">the park</text>
+          <g transform="translate(372 420)" fill="none" stroke="#294B5B" stroke-width="1.4"><circle r="22"/><path d="M0-28V28M-28 0H28" stroke-width="1"/><path d="M0-24l4 20-4 4-4-4z" fill="#742B35" stroke="none"/></g>
+        </svg>
+        <div class="cap"><span>An imaginary city</span><span>Drawn from memory</span></div>
+      </aside>
+    </div>
+    <p class="illus">All places on this page are illustrative examples made for this student concept. They are not real recommendations, and no real businesses are shown.</p>
+  </div>
+</section>
+
+<section class="sec promise" id="promise" aria-labelledby="promise-title">
+  <div class="ring" aria-hidden="true"><svg viewBox="0 0 400 400" fill="none" stroke="#F8F3E8"><circle cx="200" cy="200" r="190" stroke-width="6"/><circle cx="200" cy="200" r="170" stroke-width="1.5"/><circle cx="200" cy="200" r="120" stroke-width="1.5" stroke-dasharray="2 8"/><path d="M60 200q35-30 70 0t70 0 70 0 70 0M60 240q35-30 70 0t70 0 70 0 70 0M60 160q35-30 70 0t70 0 70 0 70 0" stroke-width="5" stroke-linecap="round"/></svg></div>
+  <div class="wrap">
+    <p class="eyebrow">Our Promise</p>
+    <blockquote id="promise-title">Discover a place through the person who <em>calls it home.</em></blockquote>
+    <p class="sub">Because the best travel stories don't begin with a checklist. They begin with a connection.</p>
+    <p class="hand" style="font-size:clamp(1.6rem,2.6vw,2.2rem);color:#EBC9A6">Your next favourite place is someone's home.</p>
+  </div>
+</section>
+
+<section class="sec" id="join" aria-labelledby="join-title">
+  <div class="wrap">
+    <div class="join-box">
+      <div class="join-copy">
+        <p class="eyebrow">Join the Club</p>
+        <h2 id="join-title">Ready for a letter from <em>somewhere else?</em></h2>
+        <p class="lede">Leave your email and picture the first envelope on your doormat.</p>
+      </div>
+      <div>
+        <form class="form" id="join-form" novalidate>
+          <label for="email">Your email address</label>
+          <div class="field">
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" aria-describedby="msg demo" required>
+            <button class="btn btn-solid" type="submit">Count Me In</button>
+          </div>
+          <p class="msg" id="msg" role="status" aria-live="polite"></p>
+          <div class="confirm" id="confirm" hidden>
+            <svg viewBox="0 0 70 84" aria-hidden="true"><use href="#stamp"/></svg>
+            <div><b>You're on the (pretend) list!</b><p>This is a demo. Your email was not collected, sent or stored. A real launch would connect a sign-up service such as Mailchimp, Buttondown or Formspree.</p></div>
+          </div>
+          <p class="demo-note" id="demo">The Travel Letter Club is a university marketing concept, so this form does not send or save anything.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="The Travel Letter Club, back to top"><svg aria-hidden="true"><use href="#logo"/></svg><span class="brand-name">The Travel Letter Club<small>Student concept</small></span></a>
+        <p class="tagline">Meet the world, one letter at a time.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul><li><a href="#story">Our Story</a></li><li><a href="#how">How It Works</a></li><li><a href="#box">The Box</a></li><li><a href="#discover">Discover</a></li></ul>
+      </div>
+      <div>
+        <h4>The Club</h4>
+        <ul><li><a href="#join">Join the Club</a></li><li><a href="#promise">Our Promise</a></li><li><a href="#top">Back to top</a></li></ul>
+      </div>
+    </div>
+    <div class="perf" aria-hidden="true"></div>
+    <div class="foot-bot">
+      <p>A university marketing project. The Travel Letter Club is a fictional brand concept; no boxes are sold and no sign-ups are collected.</p>
+      <div class="cancel" aria-hidden="true">
+        <svg viewBox="0 0 120 56" fill="none" stroke="#C9C09A" stroke-width="2" stroke-linecap="round"><circle cx="28" cy="28" r="22"/><circle cx="28" cy="28" r="17" stroke-width="1"/><path d="M20 28h16M28 20v16" stroke-width="1"/><path d="M56 14q8-5 16 0t16 0 16 0M56 26q8-5 16 0t16 0 16 0M56 38q8-5 16 0t16 0 16 0"/></svg>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  var links = document.getElementById('links');
+  function setMenu(open) {
+    links.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  burger.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && links.classList.contains('open')) { setMenu(false); burger.focus(); }
+  });
+
+  /* smooth in-page scrolling */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href').slice(1);
+      var target = id ? document.getElementById(id) : null;
+      if (!target) { return; }
+      e.preventDefault();
+      setMenu(false);
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      if (target.tabIndex < 0) { target.setAttribute('tabindex', '-1'); }
+      target.focus({ preventScroll: true });
+    });
+  });
+
+  /* highlight current section in the nav */
+  var navLinks = {};
+  document.querySelectorAll('.links a[href^="#"]').forEach(function (a) { navLinks[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && navLinks[en.target.id]) {
+          Object.keys(navLinks).forEach(function (k) { navLinks[k].classList.remove('on'); });
+          navLinks[en.target.id].classList.add('on');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(navLinks).forEach(function (id) { var s = document.getElementById(id); if (s) { spy.observe(s); } });
+
+    /* gentle rise-in (content is visible at rest; this only nudges position) */
+    if (!reduce) {
+      var rise = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('rise'); obs.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.story-grid > *, .step, .detail, .card, .stationery, .postcard-wrap, .join-box').forEach(function (el) { rise.observe(el); });
+    }
+  }
+
+  /* monthly box: items and list stay in sync */
+  var items = document.querySelectorAll('.item');
+  var tabs = document.querySelectorAll('.tab');
+  function setItem(k) {
+    items.forEach(function (it) { it.classList.toggle('active', it.getAttribute('data-k') === k); });
+    tabs.forEach(function (t) { t.setAttribute('aria-pressed', t.getAttribute('data-k') === k ? 'true' : 'false'); });
+  }
+  items.forEach(function (it) {
+    it.addEventListener('click', function () { setItem(it.getAttribute('data-k')); });
+    it.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setItem(it.getAttribute('data-k')); }
+    });
+  });
+  tabs.forEach(function (t) { t.addEventListener('click', function () { setItem(t.getAttribute('data-k')); }); });
+  setItem('letter');
+
+  /* discover: cards and map pins highlight each other */
+  var cards = document.querySelectorAll('.card');
+  var pins = document.querySelectorAll('.pin');
+  function mark(k, on) {
+    cards.forEach(function (c) { if (c.getAttribute('data-k') === k) { c.classList.toggle('hl', on); } });
+    pins.forEach(function (p) { if (p.getAttribute('data-k') === k) { p.classList.toggle('on', on); } });
+  }
+  cards.forEach(function (c) {
+    var k = c.getAttribute('data-k');
+    c.addEventListener('mouseenter', function () { mark(k, true); });
+    c.addEventListener('mouseleave', function () { mark(k, false); });
+    c.addEventListener('focusin', function () { mark(k, true); });
+    c.addEventListener('focusout', function () { mark(k, false); });
+  });
+  pins.forEach(function (p) {
+    var k = p.getAttribute('data-k');
+    function show() {
+      var card = document.querySelector('.card[data-k="' + k + '"]');
+      if (card) { card.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); }
+    }
+    p.addEventListener('mouseenter', function () { mark(k, true); });
+    p.addEventListener('mouseleave', function () { mark(k, false); });
+    p.addEventListener('focus', function () { mark(k, true); });
+    p.addEventListener('blur', function () { mark(k, false); });
+    p.addEventListener('click', show);
+    p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(); } });
+  });
+
+  /* demo sign-up: nothing is sent or stored */
+  var form = document.getElementById('join-form');
+  var email = document.getElementById('email');
+  var msg = document.getElementById('msg');
+  var confirmBox = document.getElementById('confirm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var value = email.value.trim();
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+    confirmBox.hidden = true;
+    if (!ok) {
+      email.setAttribute('aria-invalid', 'true');
+      msg.className = 'msg err';
+      msg.textContent = 'Please enter an email address like name@example.com.';
+      email.focus();
+      return;
+    }
+    email.removeAttribute('aria-invalid');
+    msg.className = 'msg';
+    msg.textContent = 'Demo confirmation: nothing was sent.';
+    confirmBox.hidden = false;
+    form.reset();
+  });
+  email.addEventListener('input', function () { email.removeAttribute('aria-invalid'); });
+})();
+</script>
+
+</body></html>
